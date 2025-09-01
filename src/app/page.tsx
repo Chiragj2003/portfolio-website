@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -53,21 +53,21 @@ export default function Home() {
               Hi, I'm{" "}
               <span className="gradient-text">Chirag J</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               A passionate full-stack developer who loves creating innovative web applications
               and turning ideas into reality through code.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/projects"
-                className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <span>View My Work</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center space-x-2 border border-gray-300 dark:border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                className="inline-flex items-center space-x-2 border border-border px-8 py-3 rounded-lg hover:bg-secondary transition-colors"
               >
                 <span>Get In Touch</span>
               </Link>
@@ -90,13 +90,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="text-center p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl hover:shadow-lg transition-shadow"
+              className="text-center p-6 bg-card border border-border rounded-xl hover:shadow-lg transition-shadow"
             >
-              <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
-                <skill.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                <skill.icon className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">{skill.description}</p>
+              <p className="text-muted-foreground text-sm">{skill.description}</p>
             </motion.div>
           ))}
         </div>
@@ -107,7 +107,7 @@ export default function Home() {
         id="featured-projects"
         title="Featured Projects"
         subtitle="Some of my recent work that showcases my skills and creativity"
-        className="bg-gray-50 dark:bg-gray-900/20"
+        className="bg-secondary/20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
@@ -117,7 +117,7 @@ export default function Home() {
         <div className="text-center mt-12">
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
           >
             <span>View All Projects</span>
             <ArrowRight className="h-5 w-5" />

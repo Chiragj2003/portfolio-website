@@ -17,7 +17,7 @@ export default function Section({ id, title, subtitle, children, className = "" 
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {subtitle}
             </p>
           )}

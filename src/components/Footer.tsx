@@ -10,11 +10,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-secondary/50 border-t border-border">
       <div className="container-max section-padding">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               © 2024 Chirag J. All rights reserved.
             </p>
           </div>
@@ -26,7 +26,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={social.name}
               >
                 <social.icon className="h-5 w-5" />

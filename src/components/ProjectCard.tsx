@@ -29,7 +29,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden card-hover"
+      className="bg-card border border-border rounded-xl overflow-hidden card-hover"
     >
       <div className="relative h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
         <Image
@@ -42,13 +42,13 @@ export default function ProjectCard({
       
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+        <p className="text-muted-foreground mb-4">{description}</p>
         
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full"
+              className="px-3 py-1 bg-secondary text-muted-foreground text-sm rounded-full"
             >
               {tech}
             </span>
@@ -61,7 +61,7 @@ export default function ProjectCard({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+              className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github className="h-4 w-4" />
               <span>Code</span>
@@ -72,7 +72,7 @@ export default function ProjectCard({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+              className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ExternalLink className="h-4 w-4" />
               <span>Live</span>
