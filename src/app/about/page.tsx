@@ -58,8 +58,8 @@ export default function About() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               About <span className="gradient-text">Me</span>
             </h1>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-              I'm a passionate full-stack developer with over 4 years of experience
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              I&apos;m a passionate full-stack developer with over 4 years of experience
               building modern web applications. I love solving complex problems and
               creating user-friendly digital experiences.
             </p>
@@ -93,10 +93,10 @@ export default function About() {
             
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-4">What drives me</h3>
-              <p className="text-foreground/70 leading-relaxed">
-                I'm passionate about creating software that makes a difference in people's lives. 
+              <p className="text-muted-foreground leading-relaxed">
+                I&apos;m passionate about creating software that makes a difference in people&apos;s lives. 
                 I believe in writing clean, maintainable code and staying up-to-date with the latest 
-                technologies. When I'm not coding, you can find me exploring new technologies, 
+                technologies. When I&apos;m not coding, you can find me exploring new technologies, 
                 contributing to open source, or sharing knowledge with the developer community.
               </p>
             </div>
@@ -111,10 +111,10 @@ export default function About() {
           >
             <h3 className="text-xl font-semibold mb-6">Technical Skills</h3>
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-2 bg-secondary text-foreground/80 rounded-lg text-sm"
+                  className="px-3 py-2 bg-secondary text-muted-foreground rounded-lg text-sm"
                 >
                   {skill}
                 </span>
@@ -139,7 +139,7 @@ export default function About() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">{job.title}</h3>
-                  <div className="flex items-center space-x-4 mt-2 text-foreground/70">
+                  <div className="flex items-center space-x-4 mt-2 text-muted-foreground">
                     <div className="flex items-center space-x-2">
                       <Briefcase className="h-4 w-4" />
                       <span>{job.company}</span>
@@ -151,7 +151,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <p className="text-foreground/70">{job.description}</p>
+              <p className="text-muted-foreground">{job.description}</p>
             </motion.div>
           ))}
         </div>
@@ -170,7 +170,7 @@ export default function About() {
               className="bg-card border border-border rounded-xl p-6"
             >
               <h3 className="text-xl font-semibold mb-2">{edu.degree}</h3>
-              <div className="flex items-center space-x-4 mb-3 text-foreground/70">
+              <div className="flex items-center space-x-4 mb-3 text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <GraduationCap className="h-4 w-4" />
                   <span>{edu.institution}</span>
@@ -180,7 +180,7 @@ export default function About() {
                   <span>{edu.period}</span>
                 </div>
               </div>
-              <p className="text-foreground/70">{edu.description}</p>
+              <p className="text-muted-foreground">{edu.description}</p>
             </motion.div>
           ))}
         </div>
