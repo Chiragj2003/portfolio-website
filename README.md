@@ -4,8 +4,9 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 
 ![Portfolio Preview](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.16-black?style=for-the-badge&logo=framer)
+![Status](https://img.shields.io/badge/Status-Working%20✅-green?style=for-the-badge)
 
 ## ✨ Features
 
@@ -22,7 +23,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Theme**: next-themes for dark/light mode
@@ -126,7 +127,7 @@ const allProjects = [
 - Skills showcase
 - Featured projects preview
 
-### About (`/about`)
+### About (`/`)
 - Personal information
 - Work experience
 - Education background
