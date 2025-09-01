@@ -1,3 +1,5 @@
+"use client"
+
 import { motion } from "framer-motion"
 import { ArrowRight, Code, Database, Globe, Smartphone } from "lucide-react"
 import Link from "next/link"
