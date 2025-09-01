@@ -79,9 +79,9 @@ export default function Contact() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Get In <span className="gradient-text">Touch</span>
             </h1>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-              I'm always interested in hearing about new opportunities and exciting projects.
-              Feel free to reach out if you'd like to collaborate or just want to say hello!
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              I&apos;m always interested in hearing about new opportunities and exciting projects.
+              Feel free to reach out if you&apos;d like to collaborate or just want to say hello!
             </p>
           </motion.div>
         </div>
@@ -205,7 +205,7 @@ export default function Contact() {
                       <h4 className="font-medium">{info.title}</h4>
                       <a
                         href={info.href}
-                        className="text-foreground/70 hover:text-foreground transition-colors"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {info.value}
                       </a>
@@ -224,7 +224,7 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-accent transition-colors"
+                    className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                     aria-label={social.name}
                   >
                     <social.icon className="h-6 w-6" />
@@ -234,13 +234,13 @@ export default function Contact() {
             </div>
 
             <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4">Let's Work Together</h3>
-              <p className="text-foreground/70 mb-4">
-                I'm currently available for freelance work and full-time opportunities.
-                If you have a project that needs some creative thinking, I'd love to hear about it.
+              <h3 className="text-xl font-semibold mb-4">Let&apos;s Work Together</h3>
+              <p className="text-muted-foreground mb-4">
+                I&apos;m currently available for freelance work and full-time opportunities.
+                If you have a project that needs some creative thinking, I&apos;d love to hear about it.
               </p>
-              <p className="text-foreground/70">
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              <p className="text-muted-foreground">
+                Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
               </p>
             </div>
           </motion.div>

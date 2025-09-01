@@ -89,8 +89,8 @@ export default function Projects() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               My <span className="gradient-text">Projects</span>
             </h1>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-              Here's a collection of projects I've built, showcasing my skills in
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Here&apos;s a collection of projects I&apos;ve built, showcasing my skills in
               frontend development, full-stack applications, and problem-solving.
             </p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Projects() {
               className={`px-6 py-3 rounded-lg transition-all duration-200 ${
                 selectedCategory === category.id
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-foreground/70 hover:bg-secondary/80"
+                  : "bg-secondary text-muted-foreground hover:bg-secondary/80"
               }`}
             >
               {category.name}
@@ -124,7 +124,7 @@ export default function Projects() {
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-foreground/70 text-lg">
+            <p className="text-muted-foreground text-lg">
               No projects found in this category. Please try another filter.
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function Projects() {
               className="text-center"
             >
               <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="text-foreground/70">{stat.label}</div>
+              <div className="text-muted-foreground">{stat.label}</div>
             </motion.div>
           ))}
         </div>
