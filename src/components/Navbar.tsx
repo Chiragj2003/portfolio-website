@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, memo, useCallback } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
@@ -12,8 +12,16 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ]
 
-export default function Navbar() {
+function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev)
+  }, [])
+  
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
@@ -41,8 +49,9 @@ export default function Navbar() {
           <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
+              aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -62,7 +71,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className="block px-3 py-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {item.name}
                 </Link>
@@ -74,3 +83,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default memo(Navbar)

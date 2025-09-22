@@ -1,5 +1,6 @@
 "use client"
 
+import { memo } from "react"
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
@@ -14,7 +15,7 @@ interface ProjectCardProps {
   index: number
 }
 
-export default function ProjectCard({
+function ProjectCard({
   title,
   description,
   image,
@@ -37,6 +38,8 @@ export default function ProjectCard({
           alt={title}
           fill
           className="object-cover"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       
@@ -83,3 +86,5 @@ export default function ProjectCard({
     </motion.div>
   )
 }
+
+export default memo(ProjectCard)

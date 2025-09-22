@@ -9,19 +9,19 @@ const experience = [
     title: "Senior Full-Stack Developer",
     company: "TechCorp Solutions",
     period: "2022 - Present",
-    description: "Leading development of enterprise web applications using React, Node.js, and cloud technologies.",
+    description: "Leading the development of enterprise-scale web applications serving 100K+ users. Architected microservices infrastructure, implemented CI/CD pipelines, and mentored junior developers. Technologies: React, Node.js, AWS, Docker, Kubernetes.",
   },
   {
     title: "Full-Stack Developer",
     company: "Digital Innovations Inc",
     period: "2020 - 2022",
-    description: "Built and maintained multiple client projects using modern web technologies and best practices.",
+    description: "Delivered 15+ client projects including e-commerce platforms, SaaS applications, and mobile apps. Collaborated with cross-functional teams and implemented agile methodologies. Achieved 40% improvement in application performance.",
   },
   {
     title: "Frontend Developer",
     company: "WebStudio",
     period: "2019 - 2020",
-    description: "Developed responsive user interfaces and implemented modern design patterns.",
+    description: "Specialized in creating pixel-perfect, responsive user interfaces for diverse clients. Implemented modern design systems, optimized web performance, and conducted user experience research.",
   },
 ]
 
@@ -30,20 +30,21 @@ const education = [
     degree: "Bachelor of Computer Science",
     institution: "University of Technology",
     period: "2015 - 2019",
-    description: "Specialized in Software Engineering with focus on web technologies.",
+    description: "Graduated with honors, specializing in Software Engineering and Web Technologies. Completed advanced coursework in algorithms, data structures, and software architecture. Active member of the Computer Science Society.",
   },
   {
-    degree: "Full-Stack Web Development",
-    institution: "Coding Bootcamp",
+    degree: "Full-Stack Web Development Certification",
+    institution: "Tech Academy",
     period: "2019",
-    description: "Intensive program covering modern web development technologies and practices.",
+    description: "Intensive 6-month program covering modern web development stack including React, Node.js, databases, and deployment strategies. Completed 5 major projects and achieved 95% grade average.",
   },
 ]
 
 const skills = [
-  "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Node.js", "Python",
-  "PostgreSQL", "MongoDB", "AWS", "Docker", "Git", "REST APIs", "GraphQL",
-  "Tailwind CSS", "Framer Motion", "Testing", "CI/CD"
+  "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Node.js", "Python", "Django",
+  "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", 
+  "GraphQL", "WebSockets", "Three.js", "Tailwind CSS", "Framer Motion", "Jest", "Cypress",
+  "CI/CD", "Microservices", "Serverless", "Machine Learning", "OpenAI API"
 ]
 
 export default function About() {
@@ -60,10 +61,11 @@ export default function About() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               About <span className="gradient-text">Me</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              I&apos;m a passionate full-stack developer with over 4 years of experience
-              building modern web applications. I love solving complex problems and
-              creating user-friendly digital experiences.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              I&apos;m a passionate full-stack developer and digital innovator with over 5 years of experience 
+              building scalable web applications and immersive digital experiences. I specialize in creating 
+              cutting-edge solutions that combine technical excellence with creative vision, always pushing 
+              the boundaries of what's possible in web development.
             </p>
           </motion.div>
         </div>
@@ -96,10 +98,12 @@ export default function About() {
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-4">What drives me</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I&apos;m passionate about creating software that makes a difference in people&apos;s lives. 
-                I believe in writing clean, maintainable code and staying up-to-date with the latest 
-                technologies. When I&apos;m not coding, you can find me exploring new technologies, 
-                contributing to open source, or sharing knowledge with the developer community.
+                I&apos;m driven by the belief that technology should enhance human experiences and solve real-world problems. 
+                My approach combines technical expertise with creative thinking, always striving to deliver solutions 
+                that are not only functional but also delightful to use. I&apos;m passionate about continuous learning, 
+                contributing to open-source projects, and mentoring the next generation of developers. When I&apos;m not 
+                coding, you&apos;ll find me exploring emerging technologies, attending tech conferences, or experimenting 
+                with the latest web development trends.
               </p>
             </div>
           </motion.div>

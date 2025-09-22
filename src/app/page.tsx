@@ -3,38 +3,61 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Code, Database, Globe, Smartphone } from "lucide-react"
 import Link from "next/link"
-import Section from "@/components/Section"
-import ProjectCard from "@/components/ProjectCard"
+import dynamic from "next/dynamic"
+import LazySection from "@/components/LazySection"
+import LazySolarSystem from "@/components/LazySolarSystem"
+
+// Dynamic imports for better performance
+const ProjectCard = dynamic(() => import("@/components/ProjectCard"), {
+  loading: () => <div className="animate-pulse bg-secondary rounded-xl h-64" />,
+  ssr: false
+})
 
 const skills = [
-  { name: "Frontend Development", icon: Globe, description: "React, Next.js, TypeScript, Tailwind CSS" },
-  { name: "Backend Development", icon: Database, description: "Node.js, Express, Python, Django" },
-  { name: "Mobile Development", icon: Smartphone, description: "React Native, Flutter" },
-  { name: "Full Stack", icon: Code, description: "MERN Stack, PostgreSQL, MongoDB" },
+  { 
+    name: "Frontend Development", 
+    icon: Globe, 
+    description: "React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js" 
+  },
+  { 
+    name: "Backend Development", 
+    icon: Database, 
+    description: "Node.js, Express, Python, Django, REST APIs, GraphQL, Microservices" 
+  },
+  { 
+    name: "Mobile Development", 
+    icon: Smartphone, 
+    description: "React Native, Flutter, iOS, Android, Cross-platform Solutions" 
+  },
+  { 
+    name: "Full Stack Solutions", 
+    icon: Code, 
+    description: "MERN Stack, PostgreSQL, MongoDB, AWS, Docker, CI/CD, DevOps" 
+  },
 ]
 
 const featuredProjects = [
   {
     title: "E-Commerce Platform",
-    description: "A full-stack e-commerce application with payment integration, user authentication, and admin dashboard.",
+    description: "A comprehensive full-stack e-commerce solution featuring secure payment processing with Stripe, advanced user authentication, real-time inventory management, and an intuitive admin dashboard. Built with modern web technologies and optimized for performance.",
     image: "/api/placeholder/400/300",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis", "Docker"],
     githubUrl: "https://github.com/Chiragj2003/ecommerce-platform",
     liveUrl: "https://ecommerce-demo.vercel.app",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
+    title: "AI-Powered Task Management",
+    description: "An intelligent task management application with AI-driven productivity insights, real-time collaboration, automated scheduling, and team analytics. Features include smart notifications, project tracking, and performance metrics.",
     image: "/api/placeholder/400/300",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "OpenAI API", "Chart.js"],
     githubUrl: "https://github.com/Chiragj2003/task-manager",
     liveUrl: "https://task-manager-demo.vercel.app",
   },
   {
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js and Tailwind CSS.",
+    title: "3D Interactive Portfolio",
+    description: "A cutting-edge portfolio website featuring immersive 3D animations, interactive solar system background, and responsive design. Showcases modern web development techniques with Three.js, Framer Motion, and advanced CSS animations.",
     image: "/api/placeholder/400/300",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    technologies: ["Next.js", "TypeScript", "Three.js", "Framer Motion", "Tailwind CSS"],
     githubUrl: "https://github.com/Chiragj2003/portfolio-website",
     liveUrl: "https://chiragj.vercel.app",
   },
@@ -43,9 +66,10 @@ const featuredProjects = [
 export default function Home() {
   return (
     <div>
+      <LazySolarSystem />
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background">
-        <div className="container-max text-center">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background/90 via-secondary/30 to-background/90 backdrop-blur-sm">
+        <div className="container-max text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,9 +79,10 @@ export default function Home() {
               Hi, I&apos;m{" "}
               <span className="gradient-text">Chirag J</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              A passionate full-stack developer who loves creating innovative web applications
-              and turning ideas into reality through code.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+              A passionate full-stack developer and digital innovator who specializes in creating 
+              immersive web experiences, scalable applications, and cutting-edge solutions that 
+              bridge the gap between creativity and technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -79,10 +104,10 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <Section
+      <LazySection
         id="skills"
-        title="What I Do"
-        subtitle="I specialize in building modern web applications and digital experiences"
+        title="Technical Expertise"
+        subtitle="Mastering the art of modern web development with cutting-edge technologies and innovative solutions"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
@@ -92,7 +117,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="text-center p-6 bg-card border border-border rounded-xl hover:shadow-lg transition-shadow"
+              whileHover={{ 
+                y: -10, 
+                rotateX: 10, 
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              className="text-center p-6 bg-card border border-border rounded-xl hover:shadow-2xl transition-all duration-300 cursor-pointer perspective-1000"
+              style={{ transformStyle: "preserve-3d" }}
             >
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
                 <skill.icon className="h-8 w-8 text-primary" />
@@ -102,13 +134,13 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </Section>
+      </LazySection>
 
       {/* Featured Projects Section */}
-      <Section
+      <LazySection
         id="featured-projects"
         title="Featured Projects"
-        subtitle="Some of my recent work that showcases my skills and creativity"
+        subtitle="Innovative solutions and cutting-edge applications that demonstrate technical excellence and creative problem-solving"
         className="bg-secondary/20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -125,7 +157,7 @@ export default function Home() {
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
-      </Section>
+      </LazySection>
     </div>
   )
 }

@@ -45,18 +45,25 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData)
-    
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    setIsSubmitting(false)
-    
-    // Show success message (you can implement a toast notification here)
-    alert("Thank you for your message! I'll get back to you soon.")
+    try {
+      // Simulate form submission with better error handling
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Here you would typically send the form data to your backend
+      // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+      console.log("Form submitted:", formData)
+      
+      // Reset form
+      setFormData({ name: "", email: "", subject: "", message: "" })
+      
+      // Show success message
+      alert("Thank you for your message! I'll get back to you within 24 hours.")
+    } catch (error) {
+      console.error("Form submission error:", error)
+      alert("Sorry, there was an error sending your message. Please try again or contact me directly.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -105,14 +112,16 @@ export default function Contact() {
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name
                   </label>
-                  <input
+                  <motion.input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                    transition={{ duration: 0.2 }}
+                    className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -120,14 +129,16 @@ export default function Contact() {
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
                   </label>
-                  <input
+                  <motion.input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                    transition={{ duration: 0.2 }}
+                    className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -137,14 +148,16 @@ export default function Contact() {
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">
                   Subject
                 </label>
-                <input
+                <motion.input
                   type="text"
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                   placeholder="What's this about?"
                 />
               </div>
@@ -153,21 +166,26 @@ export default function Contact() {
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message
                 </label>
-                <textarea
+                <motion.textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                  whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all duration-200"
                   placeholder="Tell me more about your project or inquiry..."
                 />
               </div>
               
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
                 className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
@@ -181,7 +199,7 @@ export default function Contact() {
                     <span>Send Message</span>
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
           </motion.div>
 

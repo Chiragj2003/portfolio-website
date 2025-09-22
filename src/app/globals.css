@@ -77,6 +77,19 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Performance optimizations */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    will-change: auto;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {

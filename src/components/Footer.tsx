@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/Chiragj2003", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/chiragj2003", icon: Linkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/chiragj2003", icon: Linkedin },
   { name: "Twitter", href: "https://twitter.com/chiragj2003", icon: Twitter },
   { name: "Email", href: "mailto:chiragj2003@gmail.com", icon: Mail },
 ]
@@ -26,8 +26,8 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={social.name}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                aria-label={`Visit ${social.name} profile`}
               >
                 <social.icon className="h-5 w-5" />
               </Link>
