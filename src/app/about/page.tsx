@@ -6,46 +6,61 @@ import Section from "@/components/Section"
 
 const experience = [
   {
-    title: "Senior Full-Stack Developer",
-    company: "TechCorp Solutions",
-    period: "2022 - Present",
-    description: "Leading the development of enterprise-scale web applications serving 100K+ users. Architected microservices infrastructure, implemented CI/CD pipelines, and mentored junior developers. Technologies: React, Node.js, AWS, Docker, Kubernetes.",
+    title: "Software Trainee",
+    company: "J2B Global Solutions",
+    period: "March 2025 – Present",
+    description: "Contributing to the design and development of enterprise-scale web applications serving 100K+ users. Involved in website architecture, database implementation, and application testing to ensure high performance and scalability. Technologies: HTML, CSS, JavaScript, SQL, ASP.NET WebForms, ASP.NET MVC, ASP.NET Core.",
   },
   {
-    title: "Full-Stack Developer",
-    company: "Digital Innovations Inc",
-    period: "2020 - 2022",
-    description: "Delivered 15+ client projects including e-commerce platforms, SaaS applications, and mobile apps. Collaborated with cross-functional teams and implemented agile methodologies. Achieved 40% improvement in application performance.",
-  },
-  {
-    title: "Frontend Developer",
-    company: "WebStudio",
-    period: "2019 - 2020",
-    description: "Specialized in creating pixel-perfect, responsive user interfaces for diverse clients. Implemented modern design systems, optimized web performance, and conducted user experience research.",
-  },
+    title: "Full Stack Developer",
+    company: "Freelancer",
+    period: "2022 – 2025",
+    description: "Delivered full-stack web solutions for diverse clients, from small businesses to large organizations. Designed responsive UIs, built scalable backends, and optimized performance across projects. Technologies: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Three.js, Node.js, MongoDB, SQL, ASP.NET WebForms, ASP.NET MVC, ASP.NET Core.",
+  },  
 ]
 
 const education = [
   {
-    degree: "Bachelor of Computer Science",
-    institution: "University of Technology",
-    period: "2015 - 2019",
-    description: "Graduated with honors, specializing in Software Engineering and Web Technologies. Completed advanced coursework in algorithms, data structures, and software architecture. Active member of the Computer Science Society.",
+    degree: "Bachelor of Technology in Computer Science",
+    institution: "COER University",
+    period: "2021 – 2025",
+    description: "Specialized in Software Engineering and Web Technologies with a strong foundation in algorithms, data structures, and software architecture. Actively engaged in academic projects and a contributing member of the Computer Science Society.",
+  },
+  
+  {
+    degree: "Intermediate (PCM - Physics, Chemistry, Mathematics)",
+    institution: "Stafford Public School",
+    period: "2021",
+    description: "Completed higher secondary education with a focus on Physics, Chemistry, and Mathematics, building a strong foundation in analytical and problem-solving skills.",
   },
   {
-    degree: "Full-Stack Web Development Certification",
-    institution: "Tech Academy",
+    degree: "Secondary School (10th Grade)",
+    institution: "KCM Public School",
     period: "2019",
-    description: "Intensive 6-month program covering modern web development stack including React, Node.js, databases, and deployment strategies. Completed 5 major projects and achieved 95% grade average.",
+    description: "Successfully completed secondary education with distinction, developing a strong academic foundation and active participation in extracurricular activities.",
   },
 ]
 
 const skills = [
-  "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Node.js", "Python", "Django",
-  "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", 
-  "GraphQL", "WebSockets", "Three.js", "Tailwind CSS", "Framer Motion", "Jest", "Cypress",
-  "CI/CD", "Microservices", "Serverless", "Machine Learning", "OpenAI API"
+  // Programming Languages
+  "JavaScript (ES6+)", "C#", "SQL",
+
+  // Frontend
+  "React", "Next.js", "Tailwind CSS", "Framer Motion", "Three.js", "HTML", "CSS",
+
+  // Backend
+  "Node.js", "ASP.NET WebForms", "ASP.NET MVC", "ASP.NET Core",
+
+  // Databases
+  "MySQL", "MongoDB","PostgreSQL","REDIS","Oracle",
+
+  // Tools & Version Control
+  "Git", "REST APIs", "GitHub","Visual Studio", "Visual Studio Code", "SQL Server", "AWS", "Docker",  "REST APIs",
+
+  // Other
+  "CI/CD (basic)", "Machine Learning (beginner)", "OpenAI API"
 ]
+
 
 export default function About() {
   return (

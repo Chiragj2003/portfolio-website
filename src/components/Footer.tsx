@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github,
+   Linkedin, Mail, Twitter } from "lucide-react"
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/Chiragj2003", icon: Github },
