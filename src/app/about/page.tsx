@@ -82,7 +82,7 @@ export default function About() {
               I&apos;m a passionate full-stack developer and digital innovator with over 5 years of experience 
               building scalable web applications and immersive digital experiences. I specialize in creating 
               cutting-edge solutions that combine technical excellence with creative vision, always pushing 
-              the boundaries of what's possible in web development.
+              the boundaries of what&apos;s possible in web development.
             </p>
           </motion.div>
         </div>

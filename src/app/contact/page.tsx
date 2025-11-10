@@ -18,7 +18,7 @@ const Section = ({ id, title, subtitle, children }: { id?: string; title: string
 )
 
 // Input Field component
-const InputField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: any }) => (
+const InputField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => (
   <div>
     <label className="block text-sm font-medium mb-2">{label}</label>
     <input
@@ -33,7 +33,7 @@ const InputField = ({ name, label, value, onChange }: { name: string; label: str
 )
 
 // Textarea Field component
-const TextareaField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: any }) => (
+const TextareaField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void }) => (
   <div>
     <label className="block text-sm font-medium mb-2">{label}</label>
     <textarea
@@ -117,8 +117,8 @@ export default function Contact() {
             Get In <span className="gradient-text">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm always interested in hearing about new opportunities and exciting projects.
-            Feel free to reach out if you'd like to collaborate or just want to say hello!
+            I&apos;m always interested in hearing about new opportunities and exciting projects.
+            Feel free to reach out if you&apos;d like to collaborate or just want to say hello!
           </p>
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function Contact() {
 
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 rounded-lg">
-                <p className="text-teal-900 dark:text-teal-100">✅ Message sent successfully! I'll get back to you soon.</p>
+                <p className="text-teal-900 dark:text-teal-100">✅ Message sent successfully! I&apos;ll get back to you soon.</p>
               </div>
             )}
             {submitStatus === 'error' && (
@@ -199,14 +199,14 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Let's Work Together */}
+            {/* Let&apos;s Work Together */}
             <div className="bg-card border border-border rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Let's Work Together</h3>
+              <h3 className="text-xl font-semibold mb-4">Let&apos;s Work Together</h3>
               <p className="text-muted-foreground mb-4">
-                I'm currently available for freelance work and full-time opportunities. If you have a project that needs some creative thinking, I'd love to hear about it.
+                I&apos;m currently available for freelance work and full-time opportunities. If you have a project that needs some creative thinking, I&apos;d love to hear about it.
               </p>
               <p className="text-muted-foreground">
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
               </p>
             </div>
           </div>

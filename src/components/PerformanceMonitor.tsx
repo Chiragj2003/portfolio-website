@@ -53,7 +53,7 @@ export default function PerformanceMonitor() {
         const link = document.createElement('link')
         link.rel = 'prefetch'
         link.href = href
-        link.as = as as any
+        link.as = as
         document.head.appendChild(link)
       })
     }
