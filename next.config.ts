@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig: NextConfig = {
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@react-three/fiber', '@react-three/drei'],
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
   // Image optimization
@@ -23,37 +23,6 @@ const nextConfig: NextConfig = {
   
   // Output optimization
   output: 'standalone',
-  
-  // Webpack optimizations
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    
-    // Optimize chunks
-    config.optimization.splitChunks = {
-      chunks: 'all',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-        three: {
-          test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
-          name: 'three',
-          chunks: 'all',
-        },
-      },
-    };
-    
-    return config;
-  },
 };
 
 export default withBundleAnalyzer(nextConfig);

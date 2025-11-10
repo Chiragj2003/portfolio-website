@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 // Section component
 const Section = ({ id, title, subtitle, children }: { id?: string; title: string; subtitle: string; children: React.ReactNode }) => (
@@ -9,7 +10,7 @@ const Section = ({ id, title, subtitle, children }: { id?: string; title: string
     <div className="max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
-        <p className="text-gray-600">{subtitle}</p>
+        <p className="text-muted-foreground">{subtitle}</p>
       </div>
       {children}
     </div>
@@ -19,13 +20,13 @@ const Section = ({ id, title, subtitle, children }: { id?: string; title: string
 // Input Field component
 const InputField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: any }) => (
   <div>
-    <label className="block text-sm font-medium mb-2 text-gray-700">{label}</label>
+    <label className="block text-sm font-medium mb-2">{label}</label>
     <input
       type="text"
       name={name}
       value={value}
       onChange={onChange}
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:scale-105 focus:scale-105"
+      className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 hover:scale-105 focus:scale-105"
       placeholder={`Your ${label.toLowerCase().replace('*', '').trim()}`}
     />
   </div>
@@ -34,13 +35,13 @@ const InputField = ({ name, label, value, onChange }: { name: string; label: str
 // Textarea Field component
 const TextareaField = ({ name, label, value, onChange }: { name: string; label: string; value: string; onChange: any }) => (
   <div>
-    <label className="block text-sm font-medium mb-2 text-gray-700">{label}</label>
+    <label className="block text-sm font-medium mb-2">{label}</label>
     <textarea
       name={name}
       value={value}
       onChange={onChange}
       rows={5}
-      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-200 hover:scale-105 focus:scale-105"
+      className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all duration-200 hover:scale-105 focus:scale-105"
       placeholder={`Your ${label.toLowerCase().replace('*', '').trim()}`}
     />
   </div>
@@ -78,31 +79,28 @@ export default function Contact() {
     setSubmitStatus('idle')
 
     try {
-      const emailSubject = `Contact Form: ${formData.subject}`
-      const emailBody = `
-New Contact Form Submission
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-From: ${formData.name}
-Email: ${formData.email}
-Subject: ${formData.subject}
+      const data = await response.json()
 
-Message:
-${formData.message}
-
----
-Sent from portfolio contact form on ${new Date().toLocaleString()}
-      `
-      const mailtoLink = `mailto:chiragj2019@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
-
-      // OPEN MAIL CLIENT IN NEW TAB (does NOT navigate away)
-      window.open(mailtoLink, "_blank")
-
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setSubmitStatus('success')
+      if (response.ok && data.success) {
+        setFormData({ name: "", email: "", subject: "", message: "" })
+        setSubmitStatus('success')
+      } else {
+        setSubmitStatus('error')
+      }
     } catch (error) {
       console.error(error)
       setSubmitStatus('error')
-    } finally { setIsSubmitting(false) }
+    } finally { 
+      setIsSubmitting(false) 
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -111,13 +109,14 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
 
   return (
     <div className="w-full">
+      <AnimatedBackground />
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <section className="pt-20 pb-16 relative">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+            Get In <span className="gradient-text">Touch</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             I'm always interested in hearing about new opportunities and exciting projects.
             Feel free to reach out if you'd like to collaborate or just want to say hello!
           </p>
@@ -128,17 +127,17 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
       <Section id="contact" title="Contact Information" subtitle="Let's start a conversation">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+          <div className="bg-card border border-border rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
 
             {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-700">✅ Email client opened!</p>
+              <div className="mb-6 p-4 bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 rounded-lg">
+                <p className="text-teal-900 dark:text-teal-100">✅ Message sent successfully! I'll get back to you soon.</p>
               </div>
             )}
             {submitStatus === 'error' && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-700">❌ Error submitting form.</p>
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg">
+                <p className="text-red-900 dark:text-red-100">❌ Failed to send message. Please try again or email me directly.</p>
               </div>
             )}
 
@@ -154,9 +153,9 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
                 type="button"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-200 disabled:opacity-50 flex items-center justify-center space-x-2"
+                className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg hover:bg-primary/90 transition-all duration-200 disabled:opacity-50 flex items-center justify-center space-x-2"
               >
-                {isSubmitting ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : <Send className="h-5 w-5" />}
+                {isSubmitting ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-foreground"></div> : <Send className="h-5 w-5" />}
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
               </button>
             </div>
@@ -172,12 +171,12 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
                   const Icon = info.icon
                   return (
                     <div key={info.title} className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-blue-600" />
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">{info.title}</h4>
-                        <a href={info.href} className="text-gray-600 hover:text-gray-900">{info.value}</a>
+                        <h4 className="font-medium">{info.title}</h4>
+                        <a href={info.href} className="text-muted-foreground hover:text-foreground transition-colors">{info.value}</a>
                       </div>
                     </div>
                   )
@@ -192,7 +191,7 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
                 {socialLinks.map(social => {
                   const Icon = social.icon
                   return (
-                    <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-200 transition-colors">
+                    <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors">
                       <Icon className="h-6 w-6" />
                     </a>
                   )
@@ -201,12 +200,12 @@ Sent from portfolio contact form on ${new Date().toLocaleString()}
             </div>
 
             {/* Let's Work Together */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold mb-4">Let's Work Together</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-muted-foreground mb-4">
                 I'm currently available for freelance work and full-time opportunities. If you have a project that needs some creative thinking, I'd love to hear about it.
               </p>
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
               </p>
             </div>

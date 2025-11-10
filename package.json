@@ -10,24 +10,19 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@react-three/drei": "^10.7.6",
-    "@react-three/fiber": "^9.3.0",
-    "@types/three": "^0.180.0",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.542.0",
     "next": "^15.5.4",
     "next-themes": "^0.4.6",
-    "nodemailer": "^7.0.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "three": "^0.160.0"
+    "resend": "^6.4.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^15.5.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/nodemailer": "^7.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

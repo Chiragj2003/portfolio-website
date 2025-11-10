@@ -5,7 +5,7 @@ import { ArrowRight, Code, Database, Globe, Smartphone } from "lucide-react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 import LazySection from "@/components/LazySection"
-import LazySolarSystem from "@/components/LazySolarSystem"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 // Dynamic imports for better performance
 const ProjectCard = dynamic(() => import("@/components/ProjectCard"), {
@@ -66,9 +66,9 @@ const featuredProjects = [
 export default function Home() {
   return (
     <div>
-      <LazySolarSystem />
+      <AnimatedBackground />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background/90 via-secondary/30 to-background/90 backdrop-blur-sm">
+      <section className="relative min-h-screen flex items-center justify-center">
         <div className="container-max text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Hi, I&apos;m{" "}
-              <span className="gradient-text">Chirag J</span>
+              <span className="gradient-text">Chirag Joshi</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
               A passionate full-stack developer and digital innovator who specializes in creating 

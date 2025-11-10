@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Calendar, MapPin, GraduationCap, Briefcase } from "lucide-react"
 import Section from "@/components/Section"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 const experience = [
   {
@@ -15,7 +16,7 @@ const experience = [
     title: "Full Stack Developer",
     company: "Freelancer",
     period: "2022 – 2025",
-    description: "Delivered full-stack web solutions for diverse clients, from small businesses to large organizations. Designed responsive UIs, built scalable backends, and optimized performance across projects. Technologies: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Three.js, Node.js, MongoDB, SQL, ASP.NET WebForms, ASP.NET MVC, ASP.NET Core.",
+    description: "Delivered full-stack web solutions for diverse clients, from small businesses to large organizations. Designed responsive UIs, built scalable backends, and optimized performance across projects. Technologies: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Three.js, Node.js, MongoDB, SQL",
   },  
 ]
 
@@ -55,7 +56,7 @@ const skills = [
   "MySQL", "MongoDB","PostgreSQL","REDIS","Oracle",
 
   // Tools & Version Control
-  "Git", "REST APIs", "GitHub","Visual Studio", "Visual Studio Code", "SQL Server", "AWS", "Docker",  "REST APIs",
+  "Git", "REST APIs", "GitHub","Visual Studio", "Visual Studio Code", "SQL Server", "AWS", "Docker",
 
   // Other
   "CI/CD (basic)", "Machine Learning (beginner)", "OpenAI API"
@@ -65,8 +66,9 @@ const skills = [
 export default function About() {
   return (
     <div>
+      <AnimatedBackground />
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-background via-secondary/20 to-background">
+      <section className="pt-20 pb-16 relative">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
