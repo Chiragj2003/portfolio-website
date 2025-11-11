@@ -28,7 +28,7 @@ function Navbar() {
       <div className="container-max">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-2xl font-bold gradient-text">
-            Chirag Joshi
+            Chirag J
           </Link>
 
           {/* Desktop Navigation */}
