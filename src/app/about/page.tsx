@@ -10,16 +10,27 @@ const experience = [
     title: "Software Trainee",
     company: "J2B Global Solutions",
     period: "March 2025 – Present",
-    description: "Contributing to the design and development of enterprise-scale web applications serving 100K+ users. Involved in website architecture, database implementation, and application testing to ensure high performance and scalability. Technologies: HTML, CSS, JavaScript, SQL, ASP.NET WebForms, ASP.NET MVC, ASP.NET Core.",
+    description:
+      "Contributing to the design and development of enterprise-scale web applications serving 100K+ users. Involved in website architecture, database implementation, and application testing to ensure high performance and scalability. Technologies: HTML, CSS, JavaScript, SQL, ASP.NET WebForms, ASP.NET MVC, ASP.NET Core.",
+    my_work: [
+      "Engineered CAS Portal enhancements: optimized reporting, built Excel-to-PDF utilities, and automated feedback capture.",
+      "Developed and maintained internal C# tools and SSIS packages for data onboarding, validation, and transformation.",
+      "Delivered authentication improvements, dashboard search features, and Python-based automation for Oracle workflows.",
+    ],
   },
   {
     title: "Full Stack Developer",
     company: "Freelancer",
     period: "2022 – 2025",
-    description: "Delivered full-stack web solutions for diverse clients, from small businesses to large organizations. Designed responsive UIs, built scalable backends, and optimized performance across projects. Technologies: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Three.js, Node.js, MongoDB, SQL",
-  },  
+    description:
+      "Collaborated with cross-functional teams to deliver full-stack web solutions tailored to each client’s needs. Led end-to-end execution—from responsive UI design and backend API development to database modeling, deployment, and performance tuning. Technologies: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Node.js, MongoDB, SQL.",
+    my_work: [
+      "Coordinated team-based deliveries covering requirement discovery, UX strategy, and iterative demos with stakeholders.",
+      "Implemented modular frontends, scalable Node.js/Next.js services, and data layers across SQL/MongoDB per project scope.",
+      "Set up CI/CD, environment automation, and performance audits to ensure reliable launches and smooth handovers.",
+    ],
+  },
 ]
-
 const education = [
   {
     degree: "Bachelor of Technology in Computer Science",
@@ -44,10 +55,10 @@ const education = [
 
 const skills = [
   // Programming Languages
-  "JavaScript (ES6+)", "C#", "SQL",
+  "JavaScript", "Python", "C#", "SQL",
 
   // Frontend
-  "React", "Next.js", "Tailwind CSS", "Framer Motion", "Three.js", "HTML", "CSS",
+  "React", "Next.js", "Tailwind CSS", "Canva", "HTML", "CSS",
 
   // Backend
   "Node.js", "ASP.NET WebForms", "ASP.NET MVC", "ASP.NET Core",
@@ -57,9 +68,6 @@ const skills = [
 
   // Tools & Version Control
   "Git", "REST APIs", "GitHub","Visual Studio", "Visual Studio Code", "SQL Server", "AWS", "Docker",
-
-  // Other
-  "CI/CD (basic)", "Machine Learning (beginner)", "OpenAI API"
 ]
 
 
@@ -79,11 +87,8 @@ export default function About() {
               About <span className="gradient-text">Me</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              I&apos;m a passionate full-stack developer and digital innovator with over 5 years of experience 
-              building scalable web applications and immersive digital experiences. I specialize in creating 
-              cutting-edge solutions that combine technical excellence with creative vision, always pushing 
-              the boundaries of what&apos;s possible in web development.
-            </p>
+              Passionate and results-driven software developer with hands-on experience in Python, Node.js, Express.js, React, and Next.js. Skilled with Prisma ORM, PostgreSQL, and MongoDB for building scalable, efficient applications. Quick learner and effective communicator focused on using modern technologies to deliver innovative solutions and contribute meaningfully to impactful software projects.
+            </p>           
           </motion.div>
         </div>
       </section>
@@ -115,12 +120,9 @@ export default function About() {
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-4">What drives me</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I&apos;m driven by the belief that technology should enhance human experiences and solve real-world problems. 
-                My approach combines technical expertise with creative thinking, always striving to deliver solutions 
-                that are not only functional but also delightful to use. I&apos;m passionate about continuous learning, 
-                contributing to open-source projects, and mentoring the next generation of developers. When I&apos;m not 
-                coding, you&apos;ll find me exploring emerging technologies, attending tech conferences, or experimenting 
-                with the latest web development trends.
+                I build software to solve real problems and uncover new possibilities. Complex challenges,
+                measurable outcomes, and meaningful collaboration keep me energized. I stay in research mode—
+                sharing knowledge, refining processes, and empowering teams so every release delivers lasting impact.
               </p>
             </div>
           </motion.div>
@@ -175,6 +177,13 @@ export default function About() {
                 </div>
               </div>
               <p className="text-muted-foreground">{job.description}</p>
+              {job.my_work?.length > 0 && (
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+                  {job.my_work.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
           ))}
         </div>

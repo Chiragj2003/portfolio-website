@@ -30,7 +30,7 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-card border border-border rounded-xl overflow-hidden card-hover"
+      className="flex h-full flex-col bg-card border border-border rounded-xl overflow-hidden card-hover"
     >
       <div className="relative h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
         <Image
@@ -43,10 +43,12 @@ function ProjectCard({
         />
       </div>
       
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4">{description}</p>
-        
+        <p className="text-muted-foreground mb-4 leading-relaxed">
+          {description}
+        </p>
+
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech) => (
             <span
@@ -57,8 +59,8 @@ function ProjectCard({
             </span>
           ))}
         </div>
-        
-        <div className="flex space-x-3">
+
+        <div className="mt-auto flex space-x-3">
           {githubUrl && (
             <a
               href={githubUrl}

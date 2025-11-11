@@ -9,57 +9,66 @@ import AnimatedBackground from "@/components/AnimatedBackground"
 const allProjects = [
   {
     title: "E-Learning Platform",
-    description: "A full-stack e-learning application with video conferencing, user authentication, and course management.",
-    image: "/api/placeholder/400/300",
+    description: "A full-stack learning management system with live classrooms, role-based dashboards, secure payments, and real-time collaboration.",
+    image: "/lms.png",
     technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "WebRTC"],
     category: "full-stack",
     githubUrl: "https://github.com/Chiragj2003/lms",
     liveUrl: "https://lms-gray-nine.vercel.app",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+    title: "One Notebook",
+    description: "A modern document workspace inspired by Notion, featuring real-time collaboration, Convex-backed data, and Clerk-powered authentication.",
+    image: "/one-notebook.png",
+    technologies: ["Next.js", "Convex", "Clerk", "Tailwind CSS", "TypeScript"],
     category: "full-stack",
-    githubUrl: "https://github.com/Chiragj2003/task-manager",
-    liveUrl: "https://task-manager-demo.vercel.app",
+    githubUrl: "https://github.com/Chiragj2003/One-Notebook",
+    liveUrl: "https://one-notebook.vercel.app",
   },
   {
     title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js and Tailwind CSS.",
-    image: "/api/placeholder/400/300",
+    description: "This interactive portfolio combines dynamic visuals, theme support, and rich storytelling to highlight skills and achievements.",
+    image: "/portfolio.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     category: "frontend",
     githubUrl: "https://github.com/Chiragj2003/portfolio-website",
     liveUrl: "https://chiragj.vercel.app",
   },
   {
-    title: "Weather Dashboard",
-    description: "A weather application with real-time data, forecasts, and interactive maps.",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "OpenWeather API", "Chart.js", "Tailwind CSS"],
+    title: "AI Resume Analyser",
+    description: "An AI-assisted talent evaluation tool that ingests resumes, scores ATS readiness, and generates tailored feedback with Puter.js infrastructure.",
+    image: "/resume analyser.png",
+    technologies: ["React", "React Router", "Puter.js", "OpenAI", "Tailwind CSS"],
+    category: "full-stack",
+    githubUrl: "https://github.com/Chiragj2003/ai-resume-analyser",
+    liveUrl: "https://ai-resume-analyser-kappa.vercel.app",
+  },
+  {
+    title: "QuickDraw AI",
+    description: "A timed drawing challenge where TensorFlow.js models guess your sketches in real-time, built with Vite and modern React tooling.",
+    image: "/github.png",
+    technologies: ["Vite", "React", "TypeScript", "TensorFlow.js", "Tailwind CSS"],
     category: "frontend",
-    githubUrl: "https://github.com/Chiragj2003/weather-dashboard",
-    liveUrl: "https://weather-demo.vercel.app",
+    githubUrl: "https://github.com/Chiragj2003/quickdraw",
+    liveUrl: "https://quickdraw-rho.vercel.app",
   },
   {
-    title: "Blog CMS",
-    description: "A content management system for blogs with markdown support and SEO optimization.",
-    image: "/api/placeholder/400/300",
-    technologies: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
-    category: "full-stack",
-    githubUrl: "https://github.com/Chiragj2003/blog-cms",
-    liveUrl: "https://blog-cms-demo.vercel.app",
+    title: "Emoji Pop",
+    description: "A playful Expo/React Native app for decorating photos with emoji and text stickers, complete with save and share workflows.",
+    image: "/github.png",
+    technologies: ["Expo", "React Native", "TypeScript"],
+    category: "mobile",
+    githubUrl: "https://github.com/Chiragj2003/First-Expo-app-EmojiePop",
+    liveUrl: "https://drive.google.com/file/d/19cNwWf24V-Pu0saRdGUZ15ruPc6PgWIa/view?usp=sharing",
   },
   {
-    title: "Chat Application",
-    description: "Real-time chat application with user authentication and message persistence.",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+    title: "CMS E-Commerce",
+    description: "A production-ready CMS and storefront built with ASP.NET Core MVC, featuring catalog management, checkout, and admin tooling.",
+    image: "/github.png",
+    technologies: ["ASP.NET Core", "C#", "Entity Framework Core", "SQL Server"],
     category: "full-stack",
-    githubUrl: "https://github.com/Chiragj2003/chat-app",
-    liveUrl: "https://chat-app-demo.vercel.app",
+    githubUrl: "https://github.com/Chiragj2003/CMSECommerce-main",
+    liveUrl: "https://github.com/Chiragj2003/CMSECommerce-main",
   },
 ]
 
@@ -79,7 +88,6 @@ export default function Projects() {
 
   return (
     <div>
-      <AnimatedBackground />
       {/* Hero Section with enhanced animations */}
       <section className="pt-20 pb-16 relative">
         <div className="container-max text-center">
@@ -90,7 +98,6 @@ export default function Projects() {
           >
             <motion.h1 
               className="text-4xl md:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
@@ -167,6 +174,7 @@ export default function Projects() {
                 y: -10,
                 transition: { duration: 0.3 }
               }}
+              className="h-full"
             >
               <ProjectCard {...project} index={index} />
             </motion.div>
@@ -194,7 +202,7 @@ export default function Projects() {
             { label: "Total Projects", value: allProjects.length },
             { label: "Frontend Projects", value: allProjects.filter(p => p.category === "frontend").length },
             { label: "Full Stack Projects", value: allProjects.filter(p => p.category === "full-stack").length },
-            { label: "Technologies Used", value: 15 },
+            { label: "Technologies Used", value: 20 },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

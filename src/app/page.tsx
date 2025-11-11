@@ -17,7 +17,7 @@ const skills = [
   { 
     name: "Frontend Development", 
     icon: Globe, 
-    description: "React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js" 
+    description: "React, Next.js, TypeScript, Tailwind CSS, Framer Motion" 
   },
   { 
     name: "Backend Development", 
@@ -54,10 +54,10 @@ const featuredProjects = [
     liveUrl: "https://task-manager-demo.vercel.app",
   },
   {
-    title: "3D Interactive Portfolio",
-    description: "A cutting-edge portfolio website featuring immersive 3D animations, interactive solar system background, and responsive design. Showcases modern web development techniques with Three.js, Framer Motion, and advanced CSS animations.",
+    title: "Interactive Portfolio",
+    description: "A polished portfolio website featuring immersive animations, interactive background effects, and responsive design. Showcases modern web development techniques with Framer Motion and advanced CSS animations.",
     image: "/api/placeholder/400/300",
-    technologies: ["Next.js", "TypeScript", "Three.js", "Framer Motion", "Tailwind CSS"],
+    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     githubUrl: "https://github.com/Chiragj2003/portfolio-website",
     liveUrl: "https://chiragj.vercel.app",
   },
